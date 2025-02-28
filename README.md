@@ -104,10 +104,51 @@ sudo systemctl restart mariadb
 
 ---
 
-## Step 3: Install Redis
+## Step 3: Install Redis and Configure It
 
+### Install Redis
 ```bash
 sudo apt install redis-server -y
+```
+
+### Enable Redis to Start on Boot:
+```bash
+sudo systemctl enable redis
+sudo systemctl start redis
+```
+Verify Redis is running:
+```bash
+systemctl status redis
+```
+
+### Configure Redis for ERPNext:
+Open the Redis configuration file:
+```bash
+sudo vim /etc/redis/redis.conf
+```
+Modify these settings:
+```bash
+supervised systemd
+maxmemory 256mb
+maxmemory-policy allkeys-lru
+```
+Save and exit Vim (ESC, :wq, then Enter).
+
+Restart Redis to apply changes:
+```bash
+sudo systemctl restart redis
+```
+
+### Check ERPNext Redis Connection:
+```bash
+bench doctor
+```
+If Redis is misconfigured, errors related to queueing or caching may appear.
+
+### Enable Redis Queue in ERPNext:
+```bash
+bench setup redis
+bench restart
 ```
 
 ---
