@@ -2,6 +2,9 @@
 
 This guide provides step-by-step instructions for installing ERPNext on an Ubuntu 22.04 server.
 
+Looking for new versions? See the new guide: nirosha-r/ERPNext-v16-Ubuntu-24.04-Installation-Guide (Supports Ubuntu 24.04).
+https://github.com/nirosha-r/ERPNext-v16-Ubuntu-24.04-Installation-Guide
+
 ## Prerequisites
 
 - **Ubuntu 22.04 Server**: A clean Ubuntu 22.04 server instance.
